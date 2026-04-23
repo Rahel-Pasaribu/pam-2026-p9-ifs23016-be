@@ -14,13 +14,17 @@ def index():
 @motivation_bp.route("/book/generate", methods=["POST"])
 def generate():
     data = request.get_json()
+
+    if not data:
+        return jsonify({"error": "Request body is required"}), 400
+
     genre = data.get("genre")
     total = data.get("total")
 
     if not genre:
         return jsonify({"error": "Genre is required"}), 400
 
-    if not total:
+    if total is None:
         return jsonify({"error": "Total is required"}), 400
 
     if total <= 0:
