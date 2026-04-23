@@ -5,7 +5,6 @@ def parse_llm_response(result):
     try:
         content = result.get("response") or result
 
-        # 🔥 hapus ```json ... ```
         content = re.sub(r"```json\n|\n```", "", content)
 
         parsed = json.loads(content)

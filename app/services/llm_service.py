@@ -9,10 +9,6 @@ def generate_from_llm(prompt: str):
             "chat": prompt
         }
     )
-    
-    # Debug Output dari API LLM
-    # print("STATUS:", response.status_code)
-    # print("RESPONSE:", response.text)
 
     if response.status_code != 200:
         raise Exception("LLM request failed")

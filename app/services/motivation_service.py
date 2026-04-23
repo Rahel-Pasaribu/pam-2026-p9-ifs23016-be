@@ -32,7 +32,7 @@ def create_book_recommendations(genre: str, total: int):
         result = generate_from_llm(prompt)
         recommendations = parse_llm_response(result)
 
-        # save request log (menggunakan field theme untuk menyimpan genre)
+        # save request log (theme menyimpan genre)
         req_log = RequestLog(theme=genre)
         session.add(req_log)
         session.commit()

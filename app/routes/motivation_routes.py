@@ -24,7 +24,7 @@ def generate():
     if not genre:
         return jsonify({"error": "Genre is required"}), 400
 
-    if total is None:
+    if not total:
         return jsonify({"error": "Total is required"}), 400
 
     if total <= 0:
